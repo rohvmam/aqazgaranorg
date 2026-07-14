@@ -1,0 +1,355 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// NOTE: SQLite has no enum support in Prisma — status/type fields are
+// strings constrained by the Zod schemas in src/lib/validators.ts.
+
+model Role {
+  id            String           @id @default(cuid())
+  name          String           @unique // ADMIN | MANAGER | ANALYST | VIEWER
+  descriptionEn String
+  descriptionFa String
+  users         User[]
+  permissions   RolePermission[]
+}
+
+model Permission {
+  id      String           @id @default(cuid())
+  key     String           @unique
+  labelEn String
+  labelFa String
+  roles   RolePermission[]
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model User {
+  id               String         @id @default(cuid())
+  name             String
+  email            String         @unique
+  passwordHash     String
+  title            String?
+  roleId           String
+  role             Role           @relation(fields: [roleId], references: [id])
+  twoFactorEnabled Boolean        @default(false)
+  totpSecret       String?
+  resetToken       String?
+  resetTokenExpiry DateTime?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  tasks            Task[]
+  deals            Deal[]
+  messages         Message[]
+  notifications    Notification[]
+  activityLogs     ActivityLog[]
+}
+
+model Client {
+  id            String         @id @default(cuid())
+  nameEn        String
+  nameFa        String
+  company       String?
+  email         String
+  phone         String?
+  country       String
+  status        String         @default("LEAD") // LEAD | ACTIVE | INACTIVE
+  value         Float          @default(0)
+  notes         String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  invoices      Invoice[]
+  tradeRequests TradeRequest[]
+  projects      Project[]
+}
+
+model Partner {
+  id        String   @id @default(cuid())
+  nameEn    String
+  nameFa    String
+  type      String // STRATEGIC | FINANCIAL | TECHNOLOGY | LOGISTICS
+  country   String
+  website   String?
+  since     DateTime
+  status    String   @default("ACTIVE") // ACTIVE | PAUSED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  titleEn   String
+  titleFa   String
+  summaryEn String
+  summaryFa String
+  bodyEn    String?
+  bodyFa    String?
+  sector    String
+  country   String
+  status    String    @default("PLANNING") // PLANNING | ACTIVE | COMPLETED | ON_HOLD
+  value     Float     @default(0)
+  progress  Int       @default(0)
+  featured  Boolean   @default(false)
+  startDate DateTime
+  endDate   DateTime?
+  clientId  String?
+  client    Client?   @relation(fields: [clientId], references: [id])
+  tasks     Task[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Investment {
+  id        String   @id @default(cuid())
+  titleEn   String
+  titleFa   String
+  sector    String
+  stage     String // SEED | GROWTH | EXPANSION | MATURE
+  amount    Float
+  currency  String   @default("USD")
+  irr       Float?
+  status    String   @default("ACTIVE") // ACTIVE | EXITED | HOLD
+  date      DateTime
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Deal {
+  id           String    @id @default(cuid())
+  titleEn      String
+  titleFa      String
+  counterparty String
+  country      String
+  direction    String // INBOUND | OUTBOUND
+  value        Float
+  currency     String    @default("USD")
+  stage        String    @default("PROSPECT") // PROSPECT | NEGOTIATION | CONTRACT | CLOSED_WON | CLOSED_LOST
+  closeDate    DateTime?
+  ownerId      String?
+  owner        User?     @relation(fields: [ownerId], references: [id])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model TradeRequest {
+  id                 String   @id @default(cuid())
+  refCode            String   @unique
+  type               String // IMPORT | EXPORT
+  commodity          String
+  quantity           Float
+  unit               String
+  originCountry      String
+  destinationCountry String
+  incoterm           String   @default("FOB")
+  status             String   @default("RECEIVED") // RECEIVED | REVIEW | QUOTED | IN_TRANSIT | DELIVERED | CANCELLED
+  value              Float    @default(0)
+  clientId           String?
+  client             Client?  @relation(fields: [clientId], references: [id])
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Platform {
+  id            String   @id @default(cuid())
+  nameEn        String
+  nameFa        String
+  descriptionEn String
+  descriptionFa String
+  url           String?
+  status        String   @default("DEVELOPMENT") // LIVE | BETA | DEVELOPMENT
+  users         Int      @default(0)
+  growth        Float    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model MarketplaceListing {
+  id         String   @id @default(cuid())
+  titleEn    String
+  titleFa    String
+  category   String
+  price      Float
+  currency   String   @default("USD")
+  stock      Int      @default(0)
+  status     String   @default("ACTIVE") // ACTIVE | PAUSED | SOLD_OUT
+  sellerName String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Invoice {
+  id        String        @id @default(cuid())
+  number    String        @unique
+  clientId  String
+  client    Client        @relation(fields: [clientId], references: [id])
+  issueDate DateTime
+  dueDate   DateTime
+  status    String        @default("DRAFT") // DRAFT | SENT | PAID | OVERDUE | VOID
+  currency  String        @default("USD")
+  total     Float         @default(0)
+  items     InvoiceItem[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model InvoiceItem {
+  id          String  @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  description String
+  qty         Float   @default(1)
+  unitPrice   Float   @default(0)
+  amount      Float   @default(0)
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  date        DateTime
+  type        String // INCOME | EXPENSE | TRANSFER
+  category    String
+  amount      Float
+  currency    String   @default("USD")
+  description String?
+  ref         String?
+  createdAt   DateTime @default(now())
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  status      String    @default("TODO") // TODO | IN_PROGRESS | REVIEW | DONE
+  priority    String    @default("MEDIUM") // LOW | MEDIUM | HIGH | URGENT
+  dueDate     DateTime?
+  assigneeId  String?
+  assignee    User?     @relation(fields: [assigneeId], references: [id])
+  projectId   String?
+  project     Project?  @relation(fields: [projectId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model CalendarEvent {
+  id        String    @id @default(cuid())
+  title     String
+  start     DateTime
+  end       DateTime?
+  type      String    @default("MEETING") // MEETING | DEADLINE | TRAVEL | EVENT
+  location  String?
+  notes     String?
+  createdAt DateTime  @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  title     String
+  body      String
+  type      String   @default("INFO") // INFO | SUCCESS | WARNING | ALERT
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Conversation {
+  id        String    @id @default(cuid())
+  title     String
+  createdAt DateTime  @default(now())
+  messages  Message[]
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String?
+  sender         User?        @relation(fields: [senderId], references: [id])
+  body           String
+  read           Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String // CREATE | UPDATE | DELETE | LOGIN | EXPORT
+  entity    String
+  entityId  String?
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+model NewsPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  titleEn     String
+  titleFa     String
+  excerptEn   String
+  excerptFa   String
+  bodyEn      String
+  bodyFa      String
+  category    String
+  published   Boolean   @default(true)
+  publishedAt DateTime?
+  readMinutes Int       @default(4)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Event {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  titleEn         String
+  titleFa         String
+  descriptionEn   String
+  descriptionFa   String
+  location        String
+  startDate       DateTime
+  endDate         DateTime?
+  type            String    @default("SUMMIT") // SUMMIT | EXPO | WEBINAR | FORUM
+  registrationUrl String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model JobOpening {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  titleEn       String
+  titleFa       String
+  departmentEn  String
+  departmentFa  String
+  location      String
+  type          String   @default("FULL_TIME") // FULL_TIME | PART_TIME | CONTRACT | REMOTE
+  descriptionEn String
+  descriptionFa String
+  open          Boolean  @default(true)
+  postedAt      DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String?
+  topic     String
+  message   String
+  status    String   @default("NEW") // NEW | IN_REVIEW | RESPONDED | ARCHIVED
+  createdAt DateTime @default(now())
+}
