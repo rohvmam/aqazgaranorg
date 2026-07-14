@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-body-active);
+  --font-mono: var(--font-jbmono);
+  --font-heading: var(--font-display-active);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,6 +39,11 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand-blue: #2b59ff;
+  --color-brand-violet: #8b5cf6;
+  --color-brand-cyan: #22d3ee;
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -46,88 +51,228 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-gradient-move: gradient-move 8s ease infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes gradient-move {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 }
 
+/* ——— Light theme (dashboard optional) ——— */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #f6f8fc;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #2b59ff;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2fa;
+  --secondary-foreground: #1a2438;
+  --muted: #eef1f8;
+  --muted-foreground: #5c6a82;
+  --accent: #e9eefb;
+  --accent-foreground: #1a2438;
+  --destructive: #e11d48;
+  --border: #e2e8f0;
+  --input: #dbe2ee;
+  --ring: #2b59ff;
+  --chart-1: #2b59ff;
+  --chart-2: #8b5cf6;
+  --chart-3: #0891b2;
+  --chart-4: #6366f1;
+  --chart-5: #0ea5e9;
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1220;
+  --sidebar-primary: #2b59ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2fa;
+  --sidebar-accent-foreground: #1a2438;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #2b59ff;
+  --text-2: #46536b;
+  --text-3: #5c6a82;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(11, 18, 32, 0.08);
 }
 
+/* ——— Dark luxury theme (site is always dark; dashboard default) ——— */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #05070a;
+  --foreground: #f4f7ff;
+  --card: #0a0f1a;
+  --card-foreground: #f4f7ff;
+  --popover: #0c1220;
+  --popover-foreground: #f4f7ff;
+  --primary: #2b59ff;
+  --primary-foreground: #ffffff;
+  --secondary: #121a2c;
+  --secondary-foreground: #dbe4f5;
+  --muted: #0d1424;
+  --muted-foreground: #9aa7bd;
+  --accent: #111a2f;
+  --accent-foreground: #f4f7ff;
+  --destructive: #f43f5e;
+  --border: rgba(148, 163, 184, 0.14);
+  --input: rgba(148, 163, 184, 0.2);
+  --ring: #2b59ff;
+  --chart-1: #2b59ff;
+  --chart-2: #8b5cf6;
+  --chart-3: #22d3ee;
+  --chart-4: #6366f1;
+  --chart-5: #0ea5e9;
+  --sidebar: #070b12;
+  --sidebar-foreground: #dbe4f5;
+  --sidebar-primary: #2b59ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #101827;
+  --sidebar-accent-foreground: #f4f7ff;
+  --sidebar-border: rgba(148, 163, 184, 0.1);
+  --sidebar-ring: #2b59ff;
+  --text-2: #9aa7bd;
+  --text-3: #5c6a82;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(148, 163, 184, 0.12);
+}
+
+/* ——— Locale-driven font stacks ——— */
+:root {
+  --font-display-active: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-body-active: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+[lang="fa"] {
+  --font-display-active: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
+  --font-body-active: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-  button:not(:disabled), [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
   html {
     @apply font-sans;
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: rgba(43, 89, 255, 0.35);
+    color: #f4f7ff;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display-active);
+    text-wrap: balance;
+  }
+}
+
+@utility glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, #6d8bff 0%, #a78bfa 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-brand {
+  background: linear-gradient(135deg, #2b59ff, #8b5cf6, #22d3ee);
+}
+
+@utility glow-primary {
+  box-shadow: 0 0 80px rgba(43, 89, 255, 0.25);
+}
+
+@utility glow-line {
+  box-shadow:
+    0 0 12px rgba(139, 92, 246, 0.6),
+    0 0 40px rgba(43, 89, 255, 0.35);
+}
+
+@utility eyebrow {
+  font-family: var(--font-jbmono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* Meridian divider — the signature line motif */
+@utility meridian-line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(43, 89, 255, 0.5),
+    rgba(139, 92, 246, 0.7),
+    rgba(34, 211, 238, 0.5),
+    transparent
+  );
+}
+
+/* Ambient radial glow blob for section backgrounds */
+@utility ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Numbers/tabular data */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
