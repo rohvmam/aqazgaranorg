@@ -18,15 +18,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "common" });
+  const description =
+    locale === "fa"
+      ? "هلدینگ سرمایه‌گذاری و تجارت بین‌الملل؛ اتصال سرمایه، فناوری و تولید به بازارهای جهانی."
+      : "An investment and international trade holding connecting capital, technology, and production to global markets.";
+
   return {
+    metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
     title: {
       default: `${t("companyName")} — ${t("tagline")}`,
       template: `%s — ${t("companyName")}`,
     },
-    description:
-      locale === "fa"
-        ? "هلدینگ سرمایه‌گذاری و تجارت بین‌الملل؛ اتصال سرمایه، فناوری و تولید به بازارهای جهانی."
-        : "An investment and international trade holding connecting capital, technology, and production to global markets.",
+    description,
+    openGraph: {
+      type: "website",
+      siteName: t("companyName"),
+      title: `${t("companyName")} — ${t("tagline")}`,
+      description,
+      locale: locale === "fa" ? "fa_IR" : "en_US",
+    },
+    alternates: {
+      languages: { en: "/en", fa: "/fa" },
+    },
   };
 }
 
