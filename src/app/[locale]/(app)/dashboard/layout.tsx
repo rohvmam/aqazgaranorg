@@ -5,6 +5,10 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { redirect } from "@/i18n/navigation";
 import { auth } from "@/lib/auth";
 
+// The dashboard is session-gated: render the whole subtree at request time so
+// `next build` never even starts its Prisma queries.
+export const dynamic = "force-dynamic";
+
 export default async function DashboardLayout({
   children,
   params,

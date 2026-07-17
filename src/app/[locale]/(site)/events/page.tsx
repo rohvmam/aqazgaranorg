@@ -9,6 +9,9 @@ import { loc, type L } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 import { cn } from "@/lib/utils";
 
+// Render at request time — `next build` must not need a database.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {

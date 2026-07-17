@@ -3,6 +3,9 @@ import { BUSINESS_AREAS } from "@/content/business-areas";
 import { routing } from "@/i18n/routing";
 import { prisma } from "@/lib/prisma";
 
+// Serve at request time — `next build` must not need a database.
+export const dynamic = "force-dynamic";
+
 const BASE = process.env.SITE_URL ?? "http://localhost:3000";
 
 const STATIC_PATHS = [

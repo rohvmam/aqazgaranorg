@@ -18,6 +18,9 @@ import { Timeline } from "@/components/site/home/timeline";
 import { WhyUs } from "@/components/site/home/why-us";
 import { prisma } from "@/lib/prisma";
 
+// Render at request time — `next build` must not need a database.
+export const dynamic = "force-dynamic";
+
 export default async function HomePage({
   params,
 }: {

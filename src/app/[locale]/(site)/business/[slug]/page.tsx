@@ -13,6 +13,9 @@ import { routing } from "@/i18n/routing";
 import { loc } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 
+// Render at request time — `next build` must not need a database.
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     BUSINESS_AREAS.map((area) => ({ locale, slug: area.slug })),

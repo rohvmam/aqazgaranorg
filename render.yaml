@@ -1,0 +1,34 @@
+# Render Blueprint — deploys the web service + PostgreSQL together.
+# The build needs NO database: every DB-backed route renders at request time.
+# Schema sync runs via `prisma db push` at startup (idempotent). The committed
+# prisma/migrations were generated for SQLite and must NOT be run on Postgres
+# (`prisma migrate deploy` would fail with P3019). On a paid instance you can
+# move the db push into `preDeployCommand` instead of the start command.
+
+databases:
+  - name: aqazgaran-db
+    databaseName: aqazgaran
+    user: aqazgaran
+    plan: free
+
+services:
+  - type: web
+    name: aqazgaran
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npx prisma generate && npm run build
+    startCommand: npx prisma db push --skip-generate && npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: aqazgaran-db
+          property: connectionString
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: AUTH_TRUST_HOST
+        value: "true"
+      # Set to the public URL (e.g. https://aqazgaran.onrender.com) in the dashboard.
+      - key: SITE_URL
+        sync: false

@@ -12,6 +12,9 @@ import { Link } from "@/i18n/navigation";
 import { loc } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 
+// Render at request time — `next build` must not need a database.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
