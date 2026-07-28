@@ -16,12 +16,14 @@ services:
     name: aqazgaran
     runtime: node
     plan: free
-    buildCommand: npm ci && npx prisma generate && npm run build
-    # db:seed is guarded — it exits immediately when users already exist, so it
-    # only populates a freshly provisioned database. It runs through `|| true`
-    # because it needs tsx (a devDependency): a seed failure must never stop
-    # the server from starting.
-    startCommand: npx prisma db push --skip-generate && (npm run db:seed || true) && npm run start
+    # Schema sync and seeding belong to the build, which runs once per deploy.
+    # On the free instance the container spins down after ~15 minutes idle, and
+    # anything in startCommand is paid for again on every wake-up: db push cost
+    # ~18s and the (no-op) seed ~12s, i.e. ~30s added to every cold start.
+    # db:seed is guarded — it exits immediately when users already exist — and
+    # runs through `|| true` so a seed hiccup can never fail the build.
+    buildCommand: npm ci && npx prisma generate && npm run build && npx prisma db push --skip-generate && (npm run db:seed || true)
+    startCommand: npm run start
     envVars:
       - key: NODE_VERSION
         value: "22"
