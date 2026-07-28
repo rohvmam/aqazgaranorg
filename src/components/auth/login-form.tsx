@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Loader2, ShieldCheck } from "lucide-react";
+import { Loader2, MailCheck } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,24 +18,49 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [code, setCode] = useState("");
+  const [emailMasked, setEmailMasked] = useState("");
+  const [totpAvailable, setTotpAvailable] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   const destination = callbackUrl || `/${locale}/dashboard`;
 
-  const finishSignIn = async (totp?: string) => {
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const id = setInterval(() => setCooldown((s) => s - 1), 1000);
+    return () => clearInterval(id);
+  }, [cooldown]);
+
+  const finishSignIn = async () => {
     const res = await signIn("credentials", {
       email,
       password,
-      code: totp ?? "",
+      code,
       redirect: false,
     });
     if (res?.error) {
-      setError(step === "code" || totp ? t("invalidCode") : t("invalidCredentials"));
+      setError(t("codeInvalid"));
       return false;
     }
     window.location.assign(destination);
     return true;
+  };
+
+  const resend = async () => {
+    if (cooldown > 0 || busy) return;
+    setError(null);
+    const res = await fetch("/api/account/otp/resend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, purpose: "LOGIN", locale }),
+    });
+    if (res.status === 429) {
+      setError(t("resendWait"));
+      return;
+    }
+    setCooldown(60);
+    setCode("");
   };
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -47,20 +72,22 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
         const res = await fetch("/api/account/preauth", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify({ email, password, locale }),
         });
         if (!res.ok) {
           setError(t("invalidCredentials"));
           return;
         }
-        const data = (await res.json()) as { requires2FA: boolean };
-        if (data.requires2FA) {
-          setStep("code");
-          return;
-        }
-        await finishSignIn();
+        const data = (await res.json()) as {
+          emailMasked?: string;
+          totpAvailable?: boolean;
+        };
+        setEmailMasked(data.emailMasked ?? email);
+        setTotpAvailable(Boolean(data.totpAvailable));
+        setCooldown(60);
+        setStep("code");
       } else {
-        await finishSignIn(code);
+        await finishSignIn();
       }
     } finally {
       setBusy(false);
@@ -70,10 +97,12 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
   return (
     <div>
       <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground">
-        {step === "credentials" ? t("welcomeBack") : t("twoFactorTitle")}
+        {step === "credentials" ? t("welcomeBack") : t("otpTitle")}
       </h1>
       <p className="mt-3 text-sm leading-relaxed text-text-2">
-        {step === "credentials" ? t("loginSubtitle") : t("twoFactorSubtitle")}
+        {step === "credentials"
+          ? t("loginSubtitle")
+          : t("otpSubtitle", { email: emailMasked })}
       </p>
 
       <form onSubmit={onSubmit} className="mt-9 space-y-5" noValidate>
@@ -129,11 +158,14 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
               className="space-y-5"
             >
               <div className="flex items-center gap-3 rounded-2xl border border-brand-cyan/25 bg-brand-cyan/5 p-4 text-xs leading-relaxed text-text-2">
-                <ShieldCheck className="size-5 shrink-0 text-brand-cyan" aria-hidden />
-                {t("twoFactorSubtitle")}
+                <MailCheck className="size-5 shrink-0 text-brand-cyan" aria-hidden />
+                <span>
+                  {t("otpSubtitle", { email: emailMasked })}
+                  {totpAvailable && <> {t("totpHint")}</>}
+                </span>
               </div>
               <div className="space-y-2.5">
-                <Label htmlFor="login-code">{t("verificationCode")}</Label>
+                <Label htmlFor="login-code">{t("codeLabel")}</Label>
                 <Input
                   id="login-code"
                   inputMode="numeric"
@@ -142,10 +174,34 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
                   maxLength={6}
                   required
                   dir="ltr"
+                  autoFocus
                   value={code}
                   onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
                   className="h-13 border-border/60 bg-white/[0.03] text-center font-mono text-xl tracking-[0.5em]"
                 />
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStep("credentials");
+                    setCode("");
+                    setError(null);
+                  }}
+                  className="text-text-3 transition-colors hover:text-foreground"
+                >
+                  {t("back")}
+                </button>
+                <button
+                  type="button"
+                  onClick={resend}
+                  disabled={cooldown > 0}
+                  className="text-brand-cyan transition-colors hover:text-foreground disabled:cursor-default disabled:text-text-3"
+                >
+                  {cooldown > 0
+                    ? t("resendIn", { seconds: cooldown })
+                    : t("resendCode")}
+                </button>
               </div>
             </motion.div>
           )}

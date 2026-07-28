@@ -169,8 +169,36 @@
   --font-body-active: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 [lang="fa"] {
+  --font-display-active: var(--font-estedad), var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
+  --font-body-active: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
+}
+[lang="ar"] {
+  /* Estedad is Persian-focused; Vazirmatn carries full Arabic coverage for both roles. */
   --font-display-active: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
   --font-body-active: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
+}
+[lang="ru"] {
+  /* Sora has no Cyrillic — Manrope (cyrillic subset) takes the display role too. */
+  --font-display-active: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+[lang="zh"] {
+  --font-display-active: var(--font-noto-sc), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body-active: var(--font-noto-sc), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+/* Joined scripts: negative tracking breaks letter connections; give prose more air. */
+[lang="fa"] h1,
+[lang="fa"] h2,
+[lang="fa"] h3,
+[lang="fa"] h4,
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4 {
+  letter-spacing: 0 !important;
+}
+[lang="fa"] body,
+[lang="ar"] body {
+  line-height: 1.8;
 }
 
 @layer base {

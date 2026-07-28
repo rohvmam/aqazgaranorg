@@ -9,12 +9,16 @@ const SESSION_COOKIES = [
   "__Secure-authjs.session-token",
 ];
 
+const DASHBOARD_RE = new RegExp(
+  `^/(${routing.locales.join("|")})/dashboard(/.*)?$`,
+);
+
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Fast cookie-presence gate for the dashboard; the dashboard layout
   // re-validates the session server-side with auth().
-  const dashboardMatch = pathname.match(/^\/(en|fa)\/dashboard(\/.*)?$/);
+  const dashboardMatch = pathname.match(DASHBOARD_RE);
   if (dashboardMatch) {
     const hasSession = SESSION_COOKIES.some((name) =>
       request.cookies.has(name),

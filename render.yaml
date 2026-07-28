@@ -32,3 +32,15 @@ services:
       # Set to the public URL (e.g. https://aqazgaran.onrender.com) in the dashboard.
       - key: SITE_URL
         sync: false
+      # SMTP for OTP/reset emails (Gmail App Password or a transactional
+      # provider). Without these, codes are only logged to the server console.
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: EMAIL_FROM
+        sync: false

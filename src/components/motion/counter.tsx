@@ -3,6 +3,7 @@
 import { animate, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { intlLocale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 type CounterProps = {
@@ -32,7 +33,7 @@ export function Counter({
   useEffect(() => {
     const el = ref.current;
     if (!el || !inView) return;
-    const fmt = new Intl.NumberFormat(locale === "fa" ? "fa-IR" : "en-US", {
+    const fmt = new Intl.NumberFormat(intlLocale(locale), {
       minimumFractionDigits: decimals,
       maximumFractionDigits: decimals,
     });

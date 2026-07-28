@@ -221,9 +221,16 @@ export const contactSubmissionSchema = z.object({
 export const registerSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
+  phone: z
+    .string()
+    .regex(/^\+?[0-9\s\-()]{7,20}$/, "Invalid phone number")
+    .optional()
+    .or(z.literal("").transform(() => undefined)),
   password: z
     .string()
     .min(8, "At least 8 characters")
     .regex(/[A-Z]/, "One uppercase letter")
     .regex(/[0-9]/, "One digit"),
 });
+
+export const otpCodeSchema = z.string().regex(/^\d{6}$/, "6-digit code");

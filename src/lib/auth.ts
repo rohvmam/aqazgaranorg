@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { verifySync } from "otplib";
+import { verifyOtp } from "@/lib/otp";
 import { prisma } from "@/lib/prisma";
 
 export type AppRole = "ADMIN" | "MANAGER" | "ANALYST" | "VIEWER";
@@ -31,17 +32,28 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const valid = await bcrypt.compare(password, user.passwordHash);
         if (!valid) return null;
 
-        if (user.twoFactorEnabled && user.totpSecret) {
-          if (
-            !code ||
-            !verifySync({
-              token: code,
-              secret: user.totpSecret,
-              epochTolerance: 1,
-            }).valid
-          ) {
-            return null;
-          }
+        // Every login requires a one-time code: either the emailed 6-digit
+        // OTP or, for enrolled users, an authenticator-app TOTP.
+        if (!code) return null;
+        const totpValid =
+          user.twoFactorEnabled &&
+          user.totpSecret &&
+          verifySync({
+            token: code,
+            secret: user.totpSecret,
+            epochTolerance: 1,
+          }).valid;
+        if (!totpValid) {
+          const { verdict } = await verifyOtp(user.id, "LOGIN", code);
+          if (verdict !== "ok") return null;
+        }
+
+        // A consumed emailed code proves mailbox control.
+        if (!user.emailVerified) {
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { emailVerified: new Date() },
+          });
         }
 
         await prisma.activityLog.create({

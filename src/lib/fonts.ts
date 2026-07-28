@@ -1,4 +1,5 @@
-import { JetBrains_Mono, Manrope, Sora, Vazirmatn } from "next/font/google";
+import { JetBrains_Mono, Manrope, Noto_Sans_SC, Sora, Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 
 export const sora = Sora({
   subsets: ["latin"],
@@ -8,7 +9,7 @@ export const sora = Sora({
 });
 
 export const manrope = Manrope({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
   display: "swap",
@@ -28,9 +29,26 @@ export const vazirmatn = Vazirmatn({
   display: "swap",
 });
 
+/** Persian display face — variable font, self-hosted (not on Google Fonts). */
+export const estedad = localFont({
+  src: "../fonts/estedad-var.woff2",
+  weight: "100 900",
+  variable: "--font-estedad",
+  display: "swap",
+});
+
+export const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-noto-sc",
+  display: "swap",
+});
+
 export const fontVariables = [
   sora.variable,
   manrope.variable,
   jbMono.variable,
   vazirmatn.variable,
+  estedad.variable,
+  notoSansSC.variable,
 ].join(" ");

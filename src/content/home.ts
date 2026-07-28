@@ -4,364 +4,901 @@ export const HERO = {
   eyebrow: {
     en: "Investment & International Trade Holding",
     fa: "هلدینگ سرمایه‌گذاری و تجارت بین‌الملل",
+    ar: "شركة قابضة للاستثمار والتجارة الدولية",
+    ru: "Инвестиционный и внешнеторговый холдинг",
+    zh: "投资与国际贸易控股集团",
   } as L,
   headline: {
     en: "We build the trade routes of tomorrow.",
     fa: "ما مسیرهای تجارت فردا را می‌سازیم.",
+    ar: "نبني طرق تجارة الغد.",
+    ru: "Мы строим торговые маршруты завтрашнего дня.",
+    zh: "我们构筑明日的贸易通道。",
   } as L,
   sub: {
     en: "Aghazgaran Tejarat Ayandeh connects capital, technology, and production to international markets — one ecosystem, engineered to move first.",
     fa: "آغازگران تجارت آینده سرمایه، فناوری و تولید را به بازارهای بین‌المللی متصل می‌کند — یک اکوسیستم، ساخته‌شده برای پیشگامی.",
+    ar: "تربط مجموعة آتا رأس المال والتكنولوجيا والإنتاج بالأسواق الدولية — منظومة واحدة صُممت لتتحرك أولًا.",
+    ru: "ATA Holding соединяет капитал, технологии и производство с международными рынками — единая экосистема, созданная, чтобы действовать первой.",
+    zh: "ATA 控股将资本、技术与生产连接到国际市场——一个为率先行动而生的生态体系。",
   } as L,
   chips: [
-    { en: "Trade Corridors", fa: "کریدورهای تجاری" },
-    { en: "Applied AI", fa: "هوش مصنوعی کاربردی" },
-    { en: "Growth Capital", fa: "سرمایه رشد" },
+    {
+      en: "Trade Corridors",
+      fa: "کریدورهای تجاری",
+      ar: "الممرات التجارية",
+      ru: "Торговые коридоры",
+      zh: "贸易走廊",
+    },
+    {
+      en: "Applied AI",
+      fa: "هوش مصنوعی کاربردی",
+      ar: "الذكاء الاصطناعي التطبيقي",
+      ru: "Прикладной ИИ",
+      zh: "应用人工智能",
+    },
+    {
+      en: "Growth Capital",
+      fa: "سرمایه رشد",
+      ar: "رأس مال النمو",
+      ru: "Капитал роста",
+      zh: "成长资本",
+    },
   ] as L[],
 };
 
 export const INTRO = {
-  eyebrow: { en: "The Holding", fa: "هلدینگ" } as L,
+  eyebrow: {
+    en: "The Holding",
+    fa: "هلدینگ",
+    ar: "المجموعة القابضة",
+    ru: "Холдинг",
+    zh: "控股集团",
+  } as L,
   manifesto: {
     en: "Trade is no longer about moving goods. It is about moving trust — across borders, currencies, and systems. We build the infrastructure that makes trust travel.",
     fa: "تجارت دیگر جابه‌جایی کالا نیست؛ جابه‌جایی اعتماد است — میان مرزها، ارزها و سیستم‌ها. ما زیرساختی می‌سازیم که اعتماد را به حرکت درمی‌آورد.",
+    ar: "لم تعد التجارة نقل بضائع، بل نقل ثقة — عبر الحدود والعملات والأنظمة. نحن نبني البنية التحتية التي تجعل الثقة تسافر.",
+    ru: "Торговля — это больше не перемещение товаров. Это перемещение доверия — через границы, валюты и системы. Мы строим инфраструктуру, по которой движется доверие.",
+    zh: "贸易早已不只是货物的流动，而是信任的流动——跨越国界、货币与体系。我们构建让信任得以通行的基础设施。",
   } as L,
   body1: {
     en: "Aghazgaran Tejarat Ayandeh is a holding built around one conviction: the next decade of trade belongs to those who own the full chain — origin, finance, logistics, platform, and brand.",
     fa: "آغازگران تجارت آینده هلدینگی است که حول یک باور ساخته شده: دهه آینده تجارت از آنِ کسانی است که تمام زنجیره را در اختیار دارند — از خاستگاه و تأمین مالی تا لجستیک، پلتفرم و برند.",
+    ar: "بُنيت المجموعة على قناعة واحدة: العقد القادم من التجارة سيكون لمن يملك السلسلة كاملة — المنشأ والتمويل واللوجستيات والمنصة والعلامة التجارية.",
+    ru: "ATA Holding построен вокруг одного убеждения: следующее десятилетие торговли принадлежит тем, кто владеет всей цепочкой — от происхождения и финансирования до логистики, платформы и бренда.",
+    zh: "ATA 控股建立在一个信念之上：未来十年的贸易，属于掌握完整链条的人——原产地、金融、物流、平台与品牌。",
   } as L,
   body2: {
     en: "Eleven divisions operate as one system. Our corridors feed our platforms; our platforms inform our investments; our investments strengthen the corridors. The compounding is deliberate.",
     fa: "یازده بخش به‌عنوان یک سیستم واحد کار می‌کنند. کریدورهای ما پلتفرم‌ها را تغذیه می‌کنند؛ پلتفرم‌ها به سرمایه‌گذاری‌ها جهت می‌دهند؛ و سرمایه‌گذاری‌ها کریدورها را قوی‌تر می‌کنند. این هم‌افزایی مرکب، عامدانه است.",
+    ar: "أحد عشر قطاعًا تعمل كنظام واحد. ممراتنا تغذي منصاتنا؛ ومنصاتنا توجه استثماراتنا؛ واستثماراتنا تقوّي الممرات. هذا التراكم مقصود.",
+    ru: "Одиннадцать направлений работают как единая система. Наши коридоры питают платформы; платформы направляют инвестиции; инвестиции укрепляют коридоры. Этот кумулятивный эффект — осознанный.",
+    zh: "十一个板块作为一个系统运转。走廊滋养平台，平台指引投资，投资又反哺走廊。这种复利式协同是刻意为之的设计。",
   } as L,
 };
 
 export const ECOSYSTEM = {
-  eyebrow: { en: "The Ecosystem", fa: "اکوسیستم" } as L,
+  eyebrow: {
+    en: "The Ecosystem",
+    fa: "اکوسیستم",
+    ar: "المنظومة",
+    ru: "Экосистема",
+    zh: "生态体系",
+  } as L,
   title: {
     en: "One connected system, eight forces in motion",
     fa: "یک سیستم متصل، هشت نیروی در حرکت",
+    ar: "نظام واحد مترابط، وثماني قوى في حركة دائمة",
+    ru: "Одна связанная система, восемь сил в движении",
+    zh: "一个互联系统，八股力量协同运转",
   } as L,
   lead: {
     en: "Hover each node to see how the holding routes value between capital, technology, production, and international markets.",
     fa: "روی هر گره بروید تا ببینید هلدینگ چگونه ارزش را میان سرمایه، فناوری، تولید و بازارهای بین‌المللی هدایت می‌کند.",
+    ar: "مرر فوق كل عقدة لترى كيف توجه المجموعة القيمة بين رأس المال والتكنولوجيا والإنتاج والأسواق الدولية.",
+    ru: "Наведите курсор на узлы, чтобы увидеть, как холдинг направляет ценность между капиталом, технологиями, производством и международными рынками.",
+    zh: "将鼠标悬停在各节点上，查看集团如何在资本、技术、生产与国际市场之间输送价值。",
   } as L,
-  center: { en: "ATA", fa: "آتا" } as L,
+  center: { en: "ATA", fa: "آتا", ar: "آتا", ru: "ATA", zh: "ATA" } as L,
   nodes: [
-    { id: "capital", label: { en: "Capital", fa: "سرمایه" } as L },
-    { id: "technology", label: { en: "Technology", fa: "فناوری" } as L },
-    { id: "innovation", label: { en: "Innovation", fa: "نوآوری" } as L },
-    { id: "production", label: { en: "Production", fa: "تولید" } as L },
-    { id: "supply", label: { en: "Supply Chain", fa: "زنجیره تأمین" } as L },
-    { id: "brands", label: { en: "Brands", fa: "برندها" } as L },
-    { id: "investors", label: { en: "Investors", fa: "سرمایه‌گذاران" } as L },
-    { id: "markets", label: { en: "Global Markets", fa: "بازارهای جهانی" } as L },
+    {
+      id: "capital",
+      label: { en: "Capital", fa: "سرمایه", ar: "رأس المال", ru: "Капитал", zh: "资本" } as L,
+    },
+    {
+      id: "technology",
+      label: { en: "Technology", fa: "فناوری", ar: "التكنولوجيا", ru: "Технологии", zh: "技术" } as L,
+    },
+    {
+      id: "innovation",
+      label: { en: "Innovation", fa: "نوآوری", ar: "الابتكار", ru: "Инновации", zh: "创新" } as L,
+    },
+    {
+      id: "production",
+      label: { en: "Production", fa: "تولید", ar: "الإنتاج", ru: "Производство", zh: "生产" } as L,
+    },
+    {
+      id: "supply",
+      label: { en: "Supply Chain", fa: "زنجیره تأمین", ar: "سلسلة التوريد", ru: "Цепочки поставок", zh: "供应链" } as L,
+    },
+    {
+      id: "brands",
+      label: { en: "Brands", fa: "برندها", ar: "العلامات التجارية", ru: "Бренды", zh: "品牌" } as L,
+    },
+    {
+      id: "investors",
+      label: { en: "Investors", fa: "سرمایه‌گذاران", ar: "المستثمرون", ru: "Инвесторы", zh: "投资者" } as L,
+    },
+    {
+      id: "markets",
+      label: { en: "Global Markets", fa: "بازارهای جهانی", ar: "الأسواق العالمية", ru: "Мировые рынки", zh: "全球市场" } as L,
+    },
   ],
 };
 
 export const SERVICES = {
-  eyebrow: { en: "Core Services", fa: "خدمات اصلی" } as L,
+  eyebrow: {
+    en: "Core Services",
+    fa: "خدمات اصلی",
+    ar: "الخدمات الأساسية",
+    ru: "Ключевые услуги",
+    zh: "核心服务",
+  } as L,
   title: {
     en: "What we run, end to end",
     fa: "آنچه سرتاسر اداره می‌کنیم",
+    ar: "ما نديره من البداية إلى النهاية",
+    ru: "Что мы ведём от начала и до конца",
+    zh: "我们端到端运营的业务",
   } as L,
   lead: {
     en: "Six disciplines, one accountability. Every engagement is run by the team that owns the outcome.",
     fa: "شش تخصص، یک پاسخگویی. هر پروژه را تیمی اداره می‌کند که مالک نتیجه است.",
+    ar: "ستة تخصصات ومسؤولية واحدة. كل مشروع يديره الفريق الذي يملك النتيجة.",
+    ru: "Шесть дисциплин, одна ответственность. Каждым проектом управляет команда, отвечающая за результат.",
+    zh: "六大专业领域，一份责任到底。每个项目都由对结果负责的团队全程运营。",
   } as L,
 };
 
 export const REGIONS = [
   {
-    name: { en: "Middle East & Gulf", fa: "خاورمیانه و خلیج فارس" } as L,
+    name: {
+      en: "Middle East & Gulf",
+      fa: "خاورمیانه و خلیج فارس",
+      ar: "الشرق الأوسط والخليج",
+      ru: "Ближний Восток и Персидский залив",
+      zh: "中东与海湾地区",
+    } as L,
     markets: 9,
-    note: { en: "Home corridor — Tehran, Dubai, Doha", fa: "کریدور اصلی — تهران، دبی، دوحه" } as L,
+    note: {
+      en: "Home corridor — Tehran, Dubai, Doha",
+      fa: "کریدور اصلی — تهران، دبی، دوحه",
+      ar: "الممر الرئيسي — طهران، دبي، الدوحة",
+      ru: "Домашний коридор — Тегеран, Дубай, Доха",
+      zh: "主走廊——德黑兰、迪拜、多哈",
+    } as L,
   },
   {
-    name: { en: "East & South Asia", fa: "شرق و جنوب آسیا" } as L,
+    name: {
+      en: "East & South Asia",
+      fa: "شرق و جنوب آسیا",
+      ar: "شرق وجنوب آسيا",
+      ru: "Восточная и Южная Азия",
+      zh: "东亚与南亚",
+    } as L,
     markets: 11,
-    note: { en: "Shanghai, Singapore, Mumbai", fa: "شانگهای، سنگاپور، بمبئی" } as L,
+    note: {
+      en: "Shanghai, Singapore, Mumbai",
+      fa: "شانگهای، سنگاپور، بمبئی",
+      ar: "شنغهاي، سنغافورة، مومباي",
+      ru: "Шанхай, Сингапур, Мумбаи",
+      zh: "上海、新加坡、孟买",
+    } as L,
   },
   {
-    name: { en: "Europe", fa: "اروپا" } as L,
+    name: {
+      en: "Europe",
+      fa: "اروپا",
+      ar: "أوروبا",
+      ru: "Европа",
+      zh: "欧洲",
+    } as L,
     markets: 10,
-    note: { en: "Istanbul, Frankfurt, London", fa: "استانبول، فرانکفورت، لندن" } as L,
+    note: {
+      en: "Istanbul, Frankfurt, London",
+      fa: "استانبول، فرانکفورت، لندن",
+      ar: "إسطنبول، فرانكفورت، لندن",
+      ru: "Стамбул, Франкфурт, Лондон",
+      zh: "伊斯坦布尔、法兰克福、伦敦",
+    } as L,
   },
   {
-    name: { en: "Africa & Americas", fa: "آفریقا و قاره آمریکا" } as L,
+    name: {
+      en: "Africa & Americas",
+      fa: "آفریقا و قاره آمریکا",
+      ar: "أفريقيا والأمريكيتان",
+      ru: "Африка и Америка",
+      zh: "非洲与美洲",
+    } as L,
     markets: 4,
-    note: { en: "Nairobi, São Paulo, New York", fa: "نایروبی، سائوپائولو، نیویورک" } as L,
+    note: {
+      en: "Nairobi, São Paulo, New York",
+      fa: "نایروبی، سائوپائولو، نیویورک",
+      ar: "نيروبي، ساو باولو، نيويورك",
+      ru: "Найроби, Сан-Паулу, Нью-Йорк",
+      zh: "内罗毕、圣保罗、纽约",
+    } as L,
   },
 ];
 
 export const GLOBAL = {
-  eyebrow: { en: "Global Network", fa: "شبکه جهانی" } as L,
+  eyebrow: {
+    en: "Global Network",
+    fa: "شبکه جهانی",
+    ar: "الشبكة العالمية",
+    ru: "Глобальная сеть",
+    zh: "全球网络",
+  } as L,
   title: {
     en: "Thirty-four markets, one operating rhythm",
     fa: "سی‌وچهار بازار، یک ریتم عملیاتی",
+    ar: "أربعة وثلاثون سوقًا، وإيقاع تشغيلي واحد",
+    ru: "Тридцать четыре рынка, единый операционный ритм",
+    zh: "三十四个市场，同一种运营节奏",
   } as L,
 };
 
 export const STATS = {
-  eyebrow: { en: "In Numbers", fa: "به روایت اعداد" } as L,
+  eyebrow: {
+    en: "In Numbers",
+    fa: "به روایت اعداد",
+    ar: "بالأرقام",
+    ru: "В цифрах",
+    zh: "数说 ATA",
+  } as L,
   items: [
-    { value: 120, prefix: "$", suffix: "M+", label: { en: "Annual trade volume", fa: "حجم تجارت سالانه" } as L },
-    { value: 34, label: { en: "Active markets", fa: "بازار فعال" } as L },
-    { value: 11, label: { en: "Business divisions", fa: "بخش کسب‌وکار" } as L },
-    { value: 17000, suffix: "+", label: { en: "Platform users", fa: "کاربر پلتفرم‌ها" } as L },
+    {
+      value: 120,
+      prefix: "$",
+      suffix: "M+",
+      label: {
+        en: "Annual trade volume",
+        fa: "حجم تجارت سالانه",
+        ar: "حجم التجارة السنوي",
+        ru: "Годовой торговый оборот",
+        zh: "年贸易额",
+      } as L,
+    },
+    {
+      value: 34,
+      label: {
+        en: "Active markets",
+        fa: "بازار فعال",
+        ar: "الأسواق النشطة",
+        ru: "Активные рынки",
+        zh: "活跃市场",
+      } as L,
+    },
+    {
+      value: 11,
+      label: {
+        en: "Business divisions",
+        fa: "بخش کسب‌وکار",
+        ar: "قطاعات الأعمال",
+        ru: "Бизнес-направления",
+        zh: "业务板块",
+      } as L,
+    },
+    {
+      value: 17000,
+      suffix: "+",
+      label: {
+        en: "Platform users",
+        fa: "کاربر پلتفرم‌ها",
+        ar: "مستخدمو المنصات",
+        ru: "Пользователи платформ",
+        zh: "平台用户",
+      } as L,
+    },
   ],
 };
 
 export const PROJECTS_SECTION = {
-  eyebrow: { en: "Selected Projects", fa: "پروژه‌های منتخب" } as L,
+  eyebrow: {
+    en: "Selected Projects",
+    fa: "پروژه‌های منتخب",
+    ar: "مشاريع مختارة",
+    ru: "Избранные проекты",
+    zh: "精选项目",
+  } as L,
   title: {
     en: "Work that moves markets",
     fa: "کارهایی که بازارها را حرکت می‌دهند",
+    ar: "أعمال تحرّك الأسواق",
+    ru: "Работа, которая движет рынками",
+    zh: "撬动市场的实绩",
   } as L,
 };
 
 export const OPPORTUNITIES = {
-  eyebrow: { en: "Investment Opportunities", fa: "فرصت‌های سرمایه‌گذاری" } as L,
+  eyebrow: {
+    en: "Investment Opportunities",
+    fa: "فرصت‌های سرمایه‌گذاری",
+    ar: "الفرص الاستثمارية",
+    ru: "Инвестиционные возможности",
+    zh: "投资机会",
+  } as L,
   title: {
     en: "Open positions for aligned capital",
     fa: "فرصت‌های باز برای سرمایه هم‌راستا",
+    ar: "فرص مفتوحة لرأس المال المتوافق",
+    ru: "Открытые позиции для капитала-единомышленника",
+    zh: "面向同路资本的开放席位",
   } as L,
   lead: {
     en: "Co-investment structures alongside the holding, in operations we already run.",
     fa: "ساختارهای سرمایه‌گذاری مشترک در کنار هلدینگ، در عملیاتی که خود اداره می‌کنیم.",
+    ar: "هياكل استثمار مشترك إلى جانب المجموعة، في عمليات نديرها بأنفسنا.",
+    ru: "Структуры соинвестирования вместе с холдингом — в операциях, которыми мы уже управляем.",
+    zh: "与集团并肩的联合投资架构，标的均为我们亲自运营的业务。",
   } as L,
   items: [
     {
-      title: { en: "Caspian Agri Corridor — Phase II", fa: "کریدور کشاورزی کاسپین — فاز ۲" } as L,
-      sector: { en: "Agriculture / Logistics", fa: "کشاورزی / لجستیک" } as L,
-      ticket: { en: "From $250k", fa: "از ۲۵۰ هزار دلار" } as L,
-      horizon: { en: "4-year horizon", fa: "افق ۴ ساله" } as L,
+      title: {
+        en: "Caspian Agri Corridor — Phase II",
+        fa: "کریدور کشاورزی کاسپین — فاز ۲",
+        ar: "ممر قزوين الزراعي — المرحلة الثانية",
+        ru: "Каспийский агрокоридор — фаза II",
+        zh: "里海农业走廊——第二期",
+      } as L,
+      sector: {
+        en: "Agriculture / Logistics",
+        fa: "کشاورزی / لجستیک",
+        ar: "الزراعة / اللوجستيات",
+        ru: "Сельское хозяйство / логистика",
+        zh: "农业 / 物流",
+      } as L,
+      ticket: {
+        en: "From $250k",
+        fa: "از ۲۵۰ هزار دلار",
+        ar: "ابتداءً من 250 ألف دولار",
+        ru: "От $250 тыс.",
+        zh: "25 万美元起",
+      } as L,
+      horizon: {
+        en: "4-year horizon",
+        fa: "افق ۴ ساله",
+        ar: "أفق 4 سنوات",
+        ru: "Горизонт 4 года",
+        zh: "4 年期限",
+      } as L,
       trend: [12, 18, 15, 24, 30, 28, 41],
     },
     {
-      title: { en: "ATA Invest Fund II", fa: "صندوق آتا اینوست ۲" } as L,
-      sector: { en: "Knowledge-based growth", fa: "رشد دانش‌بنیان" } as L,
-      ticket: { en: "From $500k", fa: "از ۵۰۰ هزار دلار" } as L,
-      horizon: { en: "7-year fund life", fa: "عمر ۷ ساله صندوق" } as L,
+      title: {
+        en: "ATA Invest Fund II",
+        fa: "صندوق آتا اینوست ۲",
+        ar: "صندوق آتا إنفست الثاني",
+        ru: "ATA Invest Fund II",
+        zh: "ATA 投资二期基金",
+      } as L,
+      sector: {
+        en: "Knowledge-based growth",
+        fa: "رشد دانش‌بنیان",
+        ar: "نمو الشركات المعرفية",
+        ru: "Рост наукоёмких компаний",
+        zh: "知识型企业成长",
+      } as L,
+      ticket: {
+        en: "From $500k",
+        fa: "از ۵۰۰ هزار دلار",
+        ar: "ابتداءً من 500 ألف دولار",
+        ru: "От $500 тыс.",
+        zh: "50 万美元起",
+      } as L,
+      horizon: {
+        en: "7-year fund life",
+        fa: "عمر ۷ ساله صندوق",
+        ar: "عمر الصندوق 7 سنوات",
+        ru: "Срок фонда 7 лет",
+        zh: "基金存续期 7 年",
+      } as L,
       trend: [8, 11, 14, 13, 19, 26, 32],
     },
     {
-      title: { en: "Zagros Copper Expansion", fa: "توسعه مس زاگرس" } as L,
-      sector: { en: "Mining / Offtake-backed", fa: "معدن / با پشتوانه قرارداد فروش" } as L,
-      ticket: { en: "From $1M", fa: "از ۱ میلیون دلار" } as L,
-      horizon: { en: "Offtake secured to 70%", fa: "۷۰٪ فروش تضمین‌شده" } as L,
+      title: {
+        en: "Zagros Copper Expansion",
+        fa: "توسعه مس زاگرس",
+        ar: "توسعة نحاس زاغروس",
+        ru: "Расширение медного проекта «Загрос»",
+        zh: "扎格罗斯铜业扩建",
+      } as L,
+      sector: {
+        en: "Mining / Offtake-backed",
+        fa: "معدن / با پشتوانه قرارداد فروش",
+        ar: "التعدين / مدعوم بعقود شراء",
+        ru: "Добыча / обеспечено офтейк-контрактами",
+        zh: "矿业 / 承购协议背书",
+      } as L,
+      ticket: {
+        en: "From $1M",
+        fa: "از ۱ میلیون دلار",
+        ar: "ابتداءً من مليون دولار",
+        ru: "От $1 млн",
+        zh: "100 万美元起",
+      } as L,
+      horizon: {
+        en: "Offtake secured to 70%",
+        fa: "۷۰٪ فروش تضمین‌شده",
+        ar: "عقود شراء مؤمّنة بنسبة 70%",
+        ru: "Сбыт законтрактован на 70%",
+        zh: "70% 销量已锁定",
+      } as L,
       trend: [20, 22, 21, 27, 33, 38, 45],
     },
   ],
 };
 
 export const PLATFORMS_SECTION = {
-  eyebrow: { en: "Digital Platforms", fa: "پلتفرم‌های دیجیتال" } as L,
+  eyebrow: {
+    en: "Digital Platforms",
+    fa: "پلتفرم‌های دیجیتال",
+    ar: "المنصات الرقمية",
+    ru: "Цифровые платформы",
+    zh: "数字平台",
+  } as L,
   title: {
     en: "The holding, as software",
     fa: "هلدینگ، در قالب نرم‌افزار",
+    ar: "المجموعة القابضة في صورة برمجيات",
+    ru: "Холдинг в виде программного обеспечения",
+    zh: "以软件形态呈现的控股集团",
   } as L,
   lead: {
     en: "Every platform digitizes a flow we already operate physically — that is why they work.",
     fa: "هر پلتفرم جریانی را دیجیتال می‌کند که پیش‌تر به‌صورت فیزیکی اداره کرده‌ایم — راز کارآمدی همین است.",
+    ar: "كل منصة ترقمن تدفقًا نديره فعليًا على أرض الواقع — ولهذا تنجح.",
+    ru: "Каждая платформа оцифровывает поток, которым мы уже управляем физически, — именно поэтому они работают.",
+    zh: "每个平台数字化的，都是我们已在线下实际运营的业务流——这正是它们行之有效的原因。",
   } as L,
 };
 
 export const WHY_US = {
-  eyebrow: { en: "Why ATA", fa: "چرا آتا" } as L,
+  eyebrow: {
+    en: "Why ATA",
+    fa: "چرا آتا",
+    ar: "لماذا آتا",
+    ru: "Почему ATA",
+    zh: "为何选择 ATA",
+  } as L,
   title: {
     en: "Five commitments we run the holding by",
     fa: "پنج تعهدی که هلدینگ را با آن اداره می‌کنیم",
+    ar: "خمسة التزامات ندير بها المجموعة",
+    ru: "Пять принципов, по которым мы управляем холдингом",
+    zh: "经营集团的五项承诺",
   } as L,
   items: [
     {
-      title: { en: "We own the outcome", fa: "مالک نتیجه‌ایم" } as L,
+      title: {
+        en: "We own the outcome",
+        fa: "مالک نتیجه‌ایم",
+        ar: "نملك النتيجة",
+        ru: "Мы отвечаем за результат",
+        zh: "对结果负责到底",
+      } as L,
       body: {
         en: "One team is accountable from contract to delivery. No hand-offs into the void.",
         fa: "یک تیم از قرارداد تا تحویل پاسخگوست. هیچ واگذاری بی‌سرانجامی در کار نیست.",
+        ar: "فريق واحد مسؤول من العقد حتى التسليم. لا تسليمات تضيع في الفراغ.",
+        ru: "Одна команда отвечает за всё — от контракта до поставки. Никаких передач «в никуда».",
+        zh: "从签约到交付由同一团队负责，绝无责任真空。",
       } as L,
     },
     {
-      title: { en: "Skin in every game", fa: "شریک در ریسک" } as L,
+      title: {
+        en: "Skin in every game",
+        fa: "شریک در ریسک",
+        ar: "شركاء في المخاطرة",
+        ru: "Собственные деньги в каждой сделке",
+        zh: "与客户共担风险",
+      } as L,
       body: {
         en: "We invest our own capital in the corridors and companies we advise.",
         fa: "سرمایه خودمان را در کریدورها و شرکت‌هایی که مشاوره می‌دهیم به کار می‌گیریم.",
+        ar: "نستثمر رأس مالنا الخاص في الممرات والشركات التي نقدم لها المشورة.",
+        ru: "Мы вкладываем собственный капитал в коридоры и компании, которые консультируем.",
+        zh: "我们以自有资本投入所服务的走廊与企业。",
       } as L,
     },
     {
-      title: { en: "Data before opinion", fa: "داده پیش از نظر" } as L,
+      title: {
+        en: "Data before opinion",
+        fa: "داده پیش از نظر",
+        ar: "البيانات قبل الرأي",
+        ru: "Данные важнее мнений",
+        zh: "数据先于观点",
+      } as L,
       body: {
         en: "Telemetry, settlement records, and market data drive decisions — not seniority.",
         fa: "پایش لحظه‌ای، سوابق تسویه و داده بازار تصمیم می‌سازند — نه سلسله‌مراتب.",
+        ar: "القياس اللحظي وسجلات التسوية وبيانات السوق هي ما يصنع القرار — لا الأقدمية.",
+        ru: "Решения принимают телеметрия, расчётные записи и рыночные данные, а не должности.",
+        zh: "驱动决策的是遥测数据、结算记录与市场数据——而非资历。",
       } as L,
     },
     {
-      title: { en: "Trust is engineered", fa: "اعتماد مهندسی می‌شود" } as L,
+      title: {
+        en: "Trust is engineered",
+        fa: "اعتماد مهندسی می‌شود",
+        ar: "الثقة تُهندَس",
+        ru: "Доверие проектируется",
+        zh: "信任源于机制设计",
+      } as L,
       body: {
         en: "Escrow, inspection, and certification are built into every flow by default.",
         fa: "امانت‌داری، بازرسی و گواهی به‌صورت پیش‌فرض در هر جریان تعبیه شده است.",
+        ar: "الضمان والفحص والشهادات مدمجة افتراضيًا في كل تدفق.",
+        ru: "Эскроу, инспекция и сертификация встроены в каждый поток по умолчанию.",
+        zh: "托管、验货与认证默认内建于每一条业务流。",
       } as L,
     },
     {
-      title: { en: "Long games only", fa: "فقط بازی بلندمدت" } as L,
+      title: {
+        en: "Long games only",
+        fa: "فقط بازی بلندمدت",
+        ar: "لا نلعب إلا الأدوار الطويلة",
+        ru: "Только долгосрочная игра",
+        zh: "只做长期主义",
+      } as L,
       body: {
         en: "We build corridors and companies meant to compound for a decade, not a quarter.",
         fa: "کریدورها و شرکت‌هایی می‌سازیم که برای یک دهه رشد مرکب طراحی شده‌اند، نه یک فصل.",
+        ar: "نبني ممرات وشركات صُممت لتنمو نموًا مركبًا لعقد كامل، لا لربع سنة.",
+        ru: "Мы строим коридоры и компании, рассчитанные на десятилетие роста, а не на квартал.",
+        zh: "我们打造的走廊与企业，为十年的复利增长而设计，而非一个季度。",
       } as L,
     },
   ],
 };
 
 export const TIMELINE = {
-  eyebrow: { en: "The Journey", fa: "مسیر ما" } as L,
+  eyebrow: {
+    en: "The Journey",
+    fa: "مسیر ما",
+    ar: "المسيرة",
+    ru: "Наш путь",
+    zh: "发展历程",
+  } as L,
   title: {
     en: "From first shipment to full ecosystem",
     fa: "از نخستین محموله تا اکوسیستم کامل",
+    ar: "من أول شحنة إلى منظومة متكاملة",
+    ru: "От первой поставки до полной экосистемы",
+    zh: "从首单货运到完整生态",
   } as L,
   milestones: [
     {
       year: "2019",
-      title: { en: "The first corridor", fa: "نخستین کریدور" } as L,
+      title: {
+        en: "The first corridor",
+        fa: "نخستین کریدور",
+        ar: "الممر الأول",
+        ru: "Первый коридор",
+        zh: "第一条走廊",
+      } as L,
       body: {
         en: "Founded in Tehran; first export program ships pistachios to the Gulf.",
         fa: "تأسیس در تهران؛ نخستین برنامه صادراتی، پسته را به خلیج فارس رساند.",
+        ar: "التأسيس في طهران؛ أول برنامج تصدير يشحن الفستق إلى الخليج.",
+        ru: "Основание в Тегеране; первая экспортная программа — фисташки в страны Залива.",
+        zh: "于德黑兰创立；首个出口项目将开心果运往海湾。",
       } as L,
     },
     {
       year: "2021",
-      title: { en: "Trade meets software", fa: "تلاقی تجارت و نرم‌افزار" } as L,
+      title: {
+        en: "Trade meets software",
+        fa: "تلاقی تجارت و نرم‌افزار",
+        ar: "التجارة تلتقي بالبرمجيات",
+        ru: "Торговля встречает софт",
+        zh: "贸易遇上软件",
+      } as L,
       body: {
         en: "The technology group forms; TradeBridge begins as an internal tool.",
         fa: "گروه فناوری شکل گرفت؛ ترید‌بریج به‌عنوان ابزار داخلی آغاز شد.",
+        ar: "تشكّلت مجموعة التكنولوجيا؛ وبدأت TradeBridge كأداة داخلية.",
+        ru: "Формируется технологическая группа; TradeBridge начинается как внутренний инструмент.",
+        zh: "技术团队成立；TradeBridge 以内部工具的形式起步。",
       } as L,
     },
     {
       year: "2022",
-      title: { en: "Capital joins the chain", fa: "پیوستن سرمایه به زنجیره" } as L,
+      title: {
+        en: "Capital joins the chain",
+        fa: "پیوستن سرمایه به زنجیره",
+        ar: "رأس المال ينضم إلى السلسلة",
+        ru: "Капитал входит в цепочку",
+        zh: "资本加入链条",
+      } as L,
       body: {
         en: "First fund closes; investments begin in knowledge-based exporters.",
         fa: "نخستین صندوق تکمیل شد؛ سرمایه‌گذاری در صادرکنندگان دانش‌بنیان آغاز شد.",
+        ar: "إغلاق الصندوق الأول؛ وبدء الاستثمار في المصدّرين المعرفيين.",
+        ru: "Закрыт первый фонд; начаты инвестиции в наукоёмких экспортёров.",
+        zh: "首期基金完成募集；开始投资知识型出口企业。",
       } as L,
     },
     {
       year: "2024",
-      title: { en: "The platform opens", fa: "گشایش پلتفرم" } as L,
+      title: {
+        en: "The platform opens",
+        fa: "گشایش پلتفرم",
+        ar: "افتتاح المنصة",
+        ru: "Платформа открывается",
+        zh: "平台开放",
+      } as L,
       body: {
         en: "TradeBridge opens to third parties; escrowed settlement passes 80%.",
         fa: "ترید‌بریج به روی طرف‌های ثالث گشوده شد؛ تسویه امانی از ۸۰٪ گذشت.",
+        ar: "فتح TradeBridge أمام الأطراف الخارجية؛ وتجاوزت التسوية المضمونة 80%.",
+        ru: "TradeBridge открывается для третьих сторон; доля эскроу-расчётов превышает 80%.",
+        zh: "TradeBridge 向第三方开放；托管结算占比突破 80%。",
       } as L,
     },
     {
       year: "2026",
-      title: { en: "One ecosystem", fa: "یک اکوسیستم" } as L,
+      title: {
+        en: "One ecosystem",
+        fa: "یک اکوسیستم",
+        ar: "منظومة واحدة",
+        ru: "Единая экосистема",
+        zh: "一个生态",
+      } as L,
       body: {
         en: "Eleven divisions, 34 markets, three regional offices — operating as one system.",
         fa: "یازده بخش، ۳۴ بازار و سه دفتر منطقه‌ای — در قالب یک سیستم واحد.",
+        ar: "أحد عشر قطاعًا و34 سوقًا وثلاثة مكاتب إقليمية — تعمل كنظام واحد.",
+        ru: "Одиннадцать направлений, 34 рынка, три региональных офиса — как единая система.",
+        zh: "十一个板块、34 个市场、三个区域办公室——作为一个系统运转。",
       } as L,
     },
   ],
 };
 
 export const TESTIMONIALS = {
-  eyebrow: { en: "What Partners Say", fa: "نظر شرکا" } as L,
+  eyebrow: {
+    en: "What Partners Say",
+    fa: "نظر شرکا",
+    ar: "ماذا يقول الشركاء",
+    ru: "Что говорят партнёры",
+    zh: "伙伴之声",
+  } as L,
   items: [
     {
       quote: {
         en: "They quoted a 48-hour corridor and delivered in 46. In fifteen years of importing produce, no one had ever put telemetry in front of me before asking for payment.",
         fa: "کریدور ۴۸ ساعته را وعده دادند و در ۴۶ ساعت تحویل دادند. در پانزده سال واردات محصولات تازه، هیچ‌کس پیش از درخواست پرداخت، داده رهگیری را جلوی من نگذاشته بود.",
+        ar: "وعدوا بممر مدته 48 ساعة وسلّموا في 46. في خمسة عشر عامًا من استيراد المنتجات الطازجة، لم يضع أحد بيانات التتبع أمامي قبل أن يطلب الدفع.",
+        ru: "Они обещали коридор за 48 часов и уложились в 46. За пятнадцать лет импорта продукции никто прежде не показывал мне телеметрию до того, как попросить оплату.",
+        zh: "他们承诺 48 小时的走廊，46 小时便完成交付。做了十五年生鲜进口，从没有人在要求付款之前，先把追踪数据摆在我面前。",
       } as L,
       name: "Khalid Al-Mansoori",
-      role: { en: "Procurement Director, Gulf Horizon", fa: "مدیر تدارکات، افق خلیج" } as L,
+      role: {
+        en: "Procurement Director, Gulf Horizon",
+        fa: "مدیر تدارکات، افق خلیج",
+        ar: "مدير المشتريات، أفق الخليج",
+        ru: "Директор по закупкам, Gulf Horizon",
+        zh: "Gulf Horizon 采购总监",
+      } as L,
     },
     {
       quote: {
         en: "ATA structured our offtake before asking for a single dollar. That sequence — buyers first, capital second — told me everything about how they think.",
         fa: "آتا پیش از درخواست حتی یک دلار، قرارداد فروش ما را ساختاردهی کرد. این ترتیب — اول خریدار، بعد سرمایه — همه‌چیز را درباره طرز فکرشان گفت.",
+        ar: "هيكلت آتا عقود البيع لدينا قبل أن تطلب دولارًا واحدًا. هذا الترتيب — المشترون أولًا ثم رأس المال — أخبرني بكل شيء عن طريقة تفكيرهم.",
+        ru: "ATA выстроила наши контракты на сбыт, не попросив ни доллара. Эта последовательность — сначала покупатели, потом капитал — сказала мне всё об их мышлении.",
+        zh: "ATA 在开口要一分钱之前，先帮我们敲定了承购结构。这个顺序——先有买家，再谈资本——足以说明他们的思维方式。",
       } as L,
       name: "Elif Demir",
-      role: { en: "CEO, Anatolia Steelworks", fa: "مدیرعامل، فولاد آناتولی" } as L,
+      role: {
+        en: "CEO, Anatolia Steelworks",
+        fa: "مدیرعامل، فولاد آناتولی",
+        ar: "الرئيسة التنفيذية، مصانع صلب الأناضول",
+        ru: "Генеральный директор, Anatolia Steelworks",
+        zh: "Anatolia Steelworks 首席执行官",
+      } as L,
     },
     {
       quote: {
         en: "As an LP, what I value is that they invest where they operate. The fund's edge is not analysis — it is information from their own corridors.",
         fa: "به‌عنوان سرمایه‌گذار، آنچه برایم ارزشمند است این است که جایی سرمایه‌گذاری می‌کنند که خودشان فعالیت دارند. مزیت صندوق تحلیل نیست — اطلاعاتِ برخاسته از کریدورهای خودشان است.",
+        ar: "بوصفي شريكًا محدودًا، ما أقدّره هو أنهم يستثمرون حيث يعملون. ميزة الصندوق ليست التحليل — بل المعلومات القادمة من ممراتهم الخاصة.",
+        ru: "Как LP я ценю то, что они инвестируют там, где сами работают. Преимущество фонда — не аналитика, а информация из их собственных коридоров.",
+        zh: "作为 LP，我最看重的是他们只投自己运营的领域。基金的优势不在分析，而在来自自有走廊的一手信息。",
       } as L,
       name: "Marcus Weber",
-      role: { en: "Partner, Helvetia Trade Bank", fa: "شریک، بانک تجارت هلوتیا" } as L,
+      role: {
+        en: "Partner, Helvetia Trade Bank",
+        fa: "شریک، بانک تجارت هلوتیا",
+        ar: "شريك، بنك هلفيتيا التجاري",
+        ru: "Партнёр, Helvetia Trade Bank",
+        zh: "Helvetia Trade Bank 合伙人",
+      } as L,
     },
     {
       quote: {
         en: "Our saffron sold as a commodity for twenty years. Their brand team took it to European shelves at three times the bulk price in one season.",
         fa: "زعفران ما بیست سال به‌صورت فله فروخته می‌شد. تیم برند آن‌ها در یک فصل، آن را با سه برابر قیمت فله به قفسه‌های اروپا رساند.",
+        ar: "بيع زعفراننا كسلعة خام عشرين عامًا. فريق العلامات التجارية لديهم أوصله إلى رفوف أوروبا بثلاثة أضعاف سعر الجملة في موسم واحد.",
+        ru: "Наш шафран двадцать лет продавался как сырьё. Их бренд-команда за один сезон вывела его на европейские полки по цене втрое выше оптовой.",
+        zh: "我们的藏红花以原料形式卖了二十年。他们的品牌团队只用一季，就让它以散装价三倍的价格登上欧洲货架。",
       } as L,
       name: "Fatemeh Hosseini",
-      role: { en: "Founder, Saffron Origin Co.", fa: "بنیان‌گذار، خاستگاه زعفران" } as L,
+      role: {
+        en: "Founder, Saffron Origin Co.",
+        fa: "بنیان‌گذار، خاستگاه زعفران",
+        ar: "مؤسِّسة شركة منشأ الزعفران",
+        ru: "Основательница Saffron Origin Co.",
+        zh: "Saffron Origin 公司创始人",
+      } as L,
     },
   ],
 };
 
 export const FAQ = {
-  eyebrow: { en: "Questions", fa: "پرسش‌ها" } as L,
-  title: { en: "Asked often, answered plainly", fa: "پرسش‌های پرتکرار، پاسخ‌های روشن" } as L,
+  eyebrow: {
+    en: "Questions",
+    fa: "پرسش‌ها",
+    ar: "الأسئلة",
+    ru: "Вопросы",
+    zh: "常见问题",
+  } as L,
+  title: {
+    en: "Asked often, answered plainly",
+    fa: "پرسش‌های پرتکرار، پاسخ‌های روشن",
+    ar: "أسئلة متكررة وإجابات واضحة",
+    ru: "Частые вопросы — прямые ответы",
+    zh: "常被问起，坦率作答",
+  } as L,
   items: [
     {
-      q: { en: "What does the holding actually do?", fa: "هلدینگ دقیقاً چه می‌کند؟" } as L,
+      q: {
+        en: "What does the holding actually do?",
+        fa: "هلدینگ دقیقاً چه می‌کند؟",
+        ar: "ما الذي تفعله المجموعة القابضة تحديدًا؟",
+        ru: "Чем на самом деле занимается холдинг?",
+        zh: "集团究竟做什么？",
+      } as L,
       a: {
         en: "We build and operate the full chain of international trade: sourcing and production, trade finance, logistics corridors, digital platforms, and export brands — plus an investment arm that backs companies fitting this ecosystem.",
         fa: "ما زنجیره کامل تجارت بین‌الملل را می‌سازیم و اداره می‌کنیم: تأمین و تولید، تأمین مالی تجاری، کریدورهای لجستیک، پلتفرم‌های دیجیتال و برندهای صادراتی — به‌علاوه بازوی سرمایه‌گذاری که از شرکت‌های هم‌راستا با این اکوسیستم حمایت می‌کند.",
+        ar: "نبني وندير سلسلة التجارة الدولية كاملة: التوريد والإنتاج، وتمويل التجارة، والممرات اللوجستية، والمنصات الرقمية، وعلامات التصدير — إضافة إلى ذراع استثمارية تدعم الشركات المنسجمة مع هذه المنظومة.",
+        ru: "Мы строим и ведём всю цепочку международной торговли: закупки и производство, торговое финансирование, логистические коридоры, цифровые платформы и экспортные бренды — плюс инвестиционное подразделение, поддерживающее компании, вписывающиеся в эту экосистему.",
+        zh: "我们构建并运营国际贸易的完整链条：采购与生产、贸易金融、物流走廊、数字平台与出口品牌——外加一个投资部门，支持契合这一生态的企业。",
       } as L,
     },
     {
-      q: { en: "How do I start trading with you?", fa: "چطور همکاری تجاری را آغاز کنم؟" } as L,
+      q: {
+        en: "How do I start trading with you?",
+        fa: "چطور همکاری تجاری را آغاز کنم؟",
+        ar: "كيف أبدأ التعامل التجاري معكم؟",
+        ru: "Как начать торговать с вами?",
+        zh: "如何与你们开展贸易？",
+      } as L,
       a: {
         en: "Send your requirements through the contact form or join TradeBridge directly. A trade analyst responds within two business days with a corridor assessment and indicative terms.",
         fa: "نیازمندی خود را از طریق فرم تماس ارسال کنید یا مستقیماً به ترید‌بریج بپیوندید. تحلیلگر تجاری ظرف دو روز کاری با ارزیابی کریدور و شرایط اولیه پاسخ می‌دهد.",
+        ar: "أرسل متطلباتك عبر نموذج التواصل أو انضم مباشرة إلى TradeBridge. يرد محلل تجاري خلال يومي عمل بتقييم للممر وشروط استرشادية.",
+        ru: "Отправьте запрос через контактную форму или присоединяйтесь к TradeBridge напрямую. Торговый аналитик ответит в течение двух рабочих дней с оценкой коридора и ориентировочными условиями.",
+        zh: "通过联系表单提交需求，或直接加入 TradeBridge。贸易分析师将在两个工作日内回复走廊评估与指导性条款。",
       } as L,
     },
     {
-      q: { en: "Can I co-invest alongside the holding?", fa: "می‌توانم در کنار هلدینگ سرمایه‌گذاری کنم؟" } as L,
+      q: {
+        en: "Can I co-invest alongside the holding?",
+        fa: "می‌توانم در کنار هلدینگ سرمایه‌گذاری کنم؟",
+        ar: "هل يمكنني الاستثمار المشترك إلى جانب المجموعة؟",
+        ru: "Могу ли я соинвестировать вместе с холдингом?",
+        zh: "可以与集团联合投资吗？",
+      } as L,
       a: {
         en: "Yes. Qualified investors join through fund vehicles or deal-by-deal co-investment. We publish open opportunities on the Investors page; every position is one we also hold ourselves.",
         fa: "بله. سرمایه‌گذاران واجد شرایط از طریق صندوق‌ها یا سرمایه‌گذاری مشترک مورد به مورد وارد می‌شوند. فرصت‌های باز در صفحه سرمایه‌گذاران منتشر می‌شود؛ هر موقعیتی که عرضه می‌کنیم، خودمان نیز در آن سهیم هستیم.",
+        ar: "نعم. ينضم المستثمرون المؤهلون عبر الصناديق أو الاستثمار المشترك صفقة بصفقة. ننشر الفرص المفتوحة في صفحة المستثمرين؛ وكل مركز نطرحه نمتلك حصة فيه بأنفسنا.",
+        ru: "Да. Квалифицированные инвесторы участвуют через фонды или соинвестирование по отдельным сделкам. Открытые возможности публикуются на странице «Инвесторам»; в каждой позиции мы участвуем и сами.",
+        zh: "可以。合格投资者可通过基金或逐案联合投资参与。开放机会发布在投资者页面；我们提供的每个席位，自己也持有份额。",
       } as L,
     },
     {
-      q: { en: "Which markets do you cover?", fa: "کدام بازارها را پوشش می‌دهید؟" } as L,
+      q: {
+        en: "Which markets do you cover?",
+        fa: "کدام بازارها را پوشش می‌دهید؟",
+        ar: "ما الأسواق التي تغطونها؟",
+        ru: "Какие рынки вы охватываете?",
+        zh: "你们覆盖哪些市场？",
+      } as L,
       a: {
         en: "Thirty-four markets across the Gulf, Asia, Europe, Africa, and the Americas, anchored by offices in Tehran, Dubai, and Istanbul.",
         fa: "سی‌وچهار بازار در خلیج فارس، آسیا، اروپا، آفریقا و قاره آمریکا، با پشتیبانی دفاتر تهران، دبی و استانبول.",
+        ar: "أربعة وثلاثون سوقًا في الخليج وآسيا وأوروبا وأفريقيا والأمريكيتين، ترتكز على مكاتب في طهران ودبي وإسطنبول.",
+        ru: "Тридцать четыре рынка в Заливе, Азии, Европе, Африке и Америке с опорными офисами в Тегеране, Дубае и Стамбуле.",
+        zh: "覆盖海湾、亚洲、欧洲、非洲与美洲的三十四个市场，依托德黑兰、迪拜与伊斯坦布尔的办公室。",
       } as L,
     },
     {
-      q: { en: "How is payment risk handled?", fa: "ریسک پرداخت چگونه مدیریت می‌شود؟" } as L,
+      q: {
+        en: "How is payment risk handled?",
+        fa: "ریسک پرداخت چگونه مدیریت می‌شود؟",
+        ar: "كيف تُدار مخاطر الدفع؟",
+        ru: "Как управляется платёжный риск?",
+        zh: "付款风险如何管理？",
+      } as L,
       a: {
         en: "Escrowed settlement by default: funds release against inspection certificates and shipping documents. For recurring corridors we add LC structures and credit insurance through partner banks.",
         fa: "تسویه امانی به‌صورت پیش‌فرض: وجوه در برابر گواهی بازرسی و اسناد حمل آزاد می‌شود. برای کریدورهای تکرارشونده، اعتبار اسنادی و بیمه اعتباری از طریق بانک‌های همکار اضافه می‌شود.",
+        ar: "التسوية المضمونة هي الوضع الافتراضي: تُفرج الأموال مقابل شهادات الفحص ومستندات الشحن. وللممرات المتكررة نضيف اعتمادات مستندية وتأمينًا ائتمانيًا عبر البنوك الشريكة.",
+        ru: "Эскроу-расчёты по умолчанию: средства высвобождаются против сертификатов инспекции и отгрузочных документов. Для регулярных коридоров добавляем аккредитивы и кредитное страхование через банки-партнёры.",
+        zh: "默认采用托管结算：资金凭验货证书与装运单据释放。对常态化走廊，还会通过合作银行叠加信用证结构与信用保险。",
       } as L,
     },
     {
-      q: { en: "Do you work with early-stage companies?", fa: "با شرکت‌های نوپا هم کار می‌کنید؟" } as L,
+      q: {
+        en: "Do you work with early-stage companies?",
+        fa: "با شرکت‌های نوپا هم کار می‌کنید؟",
+        ar: "هل تعملون مع الشركات الناشئة؟",
+        ru: "Работаете ли вы с компаниями ранних стадий?",
+        zh: "你们与早期公司合作吗？",
+      } as L,
       a: {
         en: "Selectively. Fund II backs knowledge-based companies with proven domestic traction; the export-readiness program takes them to their first international revenue.",
         fa: "به‌صورت گزینشی. صندوق ۲ از شرکت‌های دانش‌بنیان با موفقیت داخلی اثبات‌شده حمایت می‌کند و برنامه آمادگی صادراتی، آن‌ها را به نخستین درآمد بین‌المللی می‌رساند.",
+        ar: "بانتقائية. يدعم الصندوق الثاني الشركات المعرفية ذات النجاح المحلي المثبت؛ ويأخذها برنامج الجاهزية للتصدير إلى أول إيراد دولي لها.",
+        ru: "Избирательно. Fund II поддерживает наукоёмкие компании с подтверждённым внутренним ростом; программа экспортной готовности доводит их до первой международной выручки.",
+        zh: "有选择地合作。二期基金支持在国内市场已获验证的知识型企业；出口就绪计划则助其获得首笔国际收入。",
       } as L,
     },
   ],
 };
 
 export const NEWS_SECTION = {
-  eyebrow: { en: "Latest News", fa: "تازه‌ترین اخبار" } as L,
-  title: { en: "Signals from the network", fa: "سیگنال‌هایی از شبکه" } as L,
+  eyebrow: {
+    en: "Latest News",
+    fa: "تازه‌ترین اخبار",
+    ar: "آخر الأخبار",
+    ru: "Последние новости",
+    zh: "最新动态",
+  } as L,
+  title: {
+    en: "Signals from the network",
+    fa: "سیگنال‌هایی از شبکه",
+    ar: "إشارات من الشبكة",
+    ru: "Сигналы из сети",
+    zh: "来自网络的信号",
+  } as L,
 };
 
 export const CTA = {
-  eyebrow: { en: "Start the Conversation", fa: "گفت‌وگو را آغاز کنید" } as L,
+  eyebrow: {
+    en: "Start the Conversation",
+    fa: "گفت‌وگو را آغاز کنید",
+    ar: "ابدأ الحوار",
+    ru: "Начните разговор",
+    zh: "开启对话",
+  } as L,
   title: {
     en: "The next corridor could be yours.",
     fa: "کریدور بعدی می‌تواند از آنِ شما باشد.",
+    ar: "الممر التالي قد يكون لك.",
+    ru: "Следующий коридор может стать вашим.",
+    zh: "下一条走廊，可能就属于您。",
   } as L,
   body: {
     en: "Tell us what you make, what you need, or what you want to back. A senior member of the team replies within two business days.",
     fa: "بگویید چه تولید می‌کنید، چه نیاز دارید یا از چه می‌خواهید حمایت کنید. یکی از اعضای ارشد تیم ظرف دو روز کاری پاسخ می‌دهد.",
+    ar: "أخبرنا بما تصنعه أو ما تحتاجه أو ما تريد دعمه. يرد عليك عضو رفيع من الفريق خلال يومي عمل.",
+    ru: "Расскажите, что вы производите, что вам нужно или что вы хотите поддержать. Старший член команды ответит в течение двух рабочих дней.",
+    zh: "告诉我们您生产什么、需要什么，或想支持什么。团队资深成员将在两个工作日内回复。",
   } as L,
 };

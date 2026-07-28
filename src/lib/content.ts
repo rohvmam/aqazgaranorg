@@ -1,6 +1,15 @@
-/** Bilingual string — every piece of site content carries both locales. */
-export type L = { en: string; fa: string };
+/**
+ * Localized string — en and fa are always authored; ar/ru/zh are optional and
+ * fall back to English so partially translated content never breaks a page.
+ */
+export type L = {
+  en: string;
+  fa: string;
+  ar?: string;
+  ru?: string;
+  zh?: string;
+};
 
 export function loc(l: L, locale: string): string {
-  return locale === "fa" ? l.fa : l.en;
+  return l[locale as keyof L] ?? l.en;
 }

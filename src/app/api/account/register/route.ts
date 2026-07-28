@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
+import { sendOtpEmail } from "@/lib/mailer";
+import { issueOtp } from "@/lib/otp";
 import { prisma } from "@/lib/prisma";
 import { registerSchema } from "@/lib/validators";
 
@@ -29,6 +31,7 @@ export async function POST(req: NextRequest) {
     data: {
       name: parsed.data.name,
       email,
+      phone: parsed.data.phone,
       passwordHash,
       roleId: viewerRole.id,
     },
@@ -38,5 +41,15 @@ export async function POST(req: NextRequest) {
     data: { userId: user.id, action: "CREATE", entity: "user", entityId: user.id, detail: email },
   });
 
-  return NextResponse.json({ ok: true }, { status: 201 });
+  const locale = typeof (body as { locale?: unknown })?.locale === "string"
+    ? String((body as { locale?: string }).locale)
+    : undefined;
+  try {
+    const code = await issueOtp(user.id, "REGISTER");
+    if (code) await sendOtpEmail(email, code, locale);
+  } catch (err) {
+    console.error("[register] OTP delivery failed:", err);
+  }
+
+  return NextResponse.json({ ok: true, verifyRequired: true }, { status: 201 });
 }

@@ -40,6 +40,8 @@ model User {
   id               String         @id @default(cuid())
   name             String
   email            String         @unique
+  phone            String?
+  emailVerified    DateTime?
   passwordHash     String
   title            String?
   roleId           String
@@ -55,6 +57,23 @@ model User {
   messages         Message[]
   notifications    Notification[]
   activityLogs     ActivityLog[]
+  otpCodes         OtpCode[]
+}
+
+// One-time 6-digit email codes for login and registration verification.
+// Single active code per (user, purpose); codes are stored hashed.
+model OtpCode {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purpose    String // LOGIN | REGISTER
+  codeHash   String
+  attempts   Int       @default(0)
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([userId, purpose])
 }
 
 model Client {
