@@ -8,6 +8,12 @@ const daysAgo = (n: number) => new Date(now.getTime() - n * 86_400_000);
 const daysAhead = (n: number) => new Date(now.getTime() + n * 86_400_000);
 
 async function main() {
+  // Guard: the seed also runs from the deploy start command, so it must be
+  // a no-op once the database has data (demo entities use plain create()).
+  if ((await prisma.user.count()) > 0) {
+    console.info("Seed skipped — database already has users.");
+    return;
+  }
   console.info("Seeding…");
 
   // ——— Roles & permissions ———
