@@ -185,16 +185,12 @@
   --font-display-active: var(--font-noto-sc), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-body-active: var(--font-noto-sc), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
-/* Joined scripts: negative tracking breaks letter connections; give prose more air. */
-[lang="fa"] h1,
-[lang="fa"] h2,
-[lang="fa"] h3,
-[lang="fa"] h4,
-[lang="ar"] h1,
-[lang="ar"] h2,
-[lang="ar"] h3,
-[lang="ar"] h4 {
-  letter-spacing: 0 !important;
+/* Arabic script is cursive — any letter-spacing prises joined letters apart,
+   so tracking is neutralised wherever Persian/Arabic text renders. Inputs and
+   explicitly LTR boxes keep theirs (the 6-digit OTP field relies on it). */
+[lang="fa"] :not(input):not(textarea):not([dir="ltr"]):not([dir="ltr"] *),
+[lang="ar"] :not(input):not(textarea):not([dir="ltr"]):not([dir="ltr"] *) {
+  letter-spacing: normal !important;
 }
 [lang="fa"] body,
 [lang="ar"] body {
