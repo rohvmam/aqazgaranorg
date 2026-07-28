@@ -17,9 +17,11 @@ services:
     runtime: node
     plan: free
     buildCommand: npm ci && npx prisma generate && npm run build
-    # db:seed is guarded — it exits immediately when users already exist,
-    # so it only populates a freshly provisioned database.
-    startCommand: npx prisma db push --skip-generate && npm run db:seed && npm run start
+    # db:seed is guarded — it exits immediately when users already exist, so it
+    # only populates a freshly provisioned database. It runs through `|| true`
+    # because it needs tsx (a devDependency): a seed failure must never stop
+    # the server from starting.
+    startCommand: npx prisma db push --skip-generate && (npm run db:seed || true) && npm run start
     envVars:
       - key: NODE_VERSION
         value: "22"
